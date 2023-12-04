@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" type="text/css" href="projectcss/site.css" />
+  <script defer src="projectjs/forgot.js"></script>
+</head>
+<html>
+  <title> 
+    GTA Job site prototype
+  </title>
+  <body>
+    <div class="leftColumn">
+      <form>
+        <button class="loginButtons" type="submit" formaction="index.html"> Home </button>
+      </form>
+    </div>
+    <div class="pageLogo">
+      <img alt="UMKC Logo" src="projectimages/umkc_white_cropped2.png" class="centeredImage">
+    </div>
+    <h2>Forgot Password?</h2>
+    <h3>Enter your email and we will send you a temporary password</h3>
+    <h3>
+        <input id="emailAddress" type="text" placeholder="Enter your email">
+    </h3>
+    <h3>
+      <input onclick="forgotAlert()" type="submit" value="Send Email" id="forgotEmailSubmit">
+    </h3>
+    <h3>If you don't receive an email, check your spam folder</h3>
+    <h4 align="center">Click the "Home" button on the left to go back to login page</h4>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="projectcss/site.css" />
+</head>
+<html>
+<title>
+  GTA Job site prototype
+</title>
+
+<body>
+
+  <div class="leftColumn">
+    <h2>Login to go to Application</h2>
+    <hr>
+    <div class="loginform">
+      <header>Login to Apply</header><br />
+      <form action="#">
+        <input type="text" placeholder="Enter your email">
+        <input type="password" placeholder="Enter your password"><br /><br />
+        <div class="buttonContainer">
+          <form>
+            <button class="loginButtons" type="submit" formaction="applicationPage.html"> Login </button>
+          </form>
+          <br>
+          <form>
+            <button class="loginButtons" type="submit" formaction="forgot.html"> Forgot Password? </button>
+          </form>
+          <br>
+          <form>
+            <button class="loginButtons" type="submit" formaction="login.html"> Admin Login </button>
+          </form>
+        </div>
+    </div>
+  </div>
+
+  <!--relocated this div so the logo centers better with the main content rather than the page-->
+
+  <div class="pageLogo">
+    <img alt="UMKC Logo" src="projectimages/umkc_white_cropped2.png" class="centeredImage">
+  </div>
+
+  <div>
+    <h2>
+      GTA/Lab Assistant/Grader Application Site
+    </h2>
+    <div class="mainContent">
+      <table id="csvTable">
+        <thead>
+        </thead>
+        <tbody class="tableBody">
+        </tbody>
+      </table>
+    </div>
+    <script>
+      // Constant file path to your CSV file
+      const filePath = 'projectData/applicationlist.csv';
+
+      // Call the function to read and populate the table
+      loadCSV(filePath);
+
+      function loadCSV(filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(csvData => {
+            populateTable(csvData);
+          })
+          .catch(error => console.error('Error loading CSV file:', error));
+      }
+
+      function populateTable(csvData) {
+        const table = document.getElementById('csvTable');
+        const rows = csvData.split('\n');
+
+        // Assume the first line is the header
+        const headers = rows[0].split(',');
+
+        // Create header cells
+        const headerRow = table.getElementsByTagName('thead')[0].insertRow(0);
+        for (let i = 2; i < headers.length; i++) {
+          const cell = headerRow.insertCell(i - 2);
+          cell.textContent = headers[i];
+        }
+
+        const tbody = table.getElementsByTagName('tbody')[0];
+        for (let i = rows.length - 1; i >= 1; i--) {
+          const data = rows[i].split(',');
+
+          // Skip the first two elements in each row
+          const row = tbody.insertRow(0);
+
+          for (let j = 2; j < data.length; j++) {
+            const cell = row.insertCell(j - 2);
+            cell.textContent = data[j];
+          }
+
+
+        }
+      }
+    </script>
+    <br />
+    <br />
+    <br />
+    <script>
+      /*var table = document.getElementsByTagName("table")[0];
+      var tbody = table.getElementsByTagName("tbody")[0];
+      tbody.onclick = function (e) {
+        e = e || window.event;
+        var data = [];
+        var target = e.srcElement || e.target;
+        while (target && target.nodeName !== "TR") {
+          target = target.parentNode;
+        }
+
+        if (target) {
+          var cells = target.getElementsByTagName("td");
+          for (var i = 0; i < cells.length; i++) {
+            data.push(cells[i].innerHTML);
+          }
+        }
+        alert(data);
+      };*/
+    </script>
+  </div>
+
+</body>

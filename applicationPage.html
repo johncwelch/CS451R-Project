@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="projectcss/site.css" />
+</head>
+
+<body onload="degreeStatusHide()">
+
+  <div class="leftColumn">
+    <h2>Apply here or click to go home</h2>
+    <hr>
+    <form>
+      <button class="loginButtons" type="submit" formaction="index.html"> Home </button>
+    </form>
+  </div>
+  <div class="pageLogo">
+    <img alt="UMKC Logo" src="projectimages/umkc_white_cropped2.png" class="centeredImage">
+  </div>
+
+  <div>
+    <h2>Application Form</h2>
+    <hr />
+    <h3>Instructions</h3>
+    <p align="left">1. Select only one job to apply for at a time</p>
+    <p align="left">2. Fill out the form completely to apply</p>
+    <p align="left">3. If you do NOT have a degree, and you are a US Citizen, you do not need a certificate of
+      eligibility, select "No"
+      for that option</p>
+    <p align="left">4. If you have a bachelor's/master's/doctoral degree from a US college/university, you do not need a
+      certificate of eligibility regardless of citizenship status, so those options will not be available</p>
+    <hr>
+  </div>
+
+  <div class="mainContent">
+    <table id="csvTable">
+      <thead>
+      </thead>
+      <tbody class="tableBody">
+      </tbody>
+    </table>
+  </div>
+  <script>
+    // Constant file path to your CSV file
+    const filePath = 'projectData/applicationlist.csv';
+
+    // Call the function to read and populate the table
+    loadCSV(filePath);
+
+    function loadCSV(filePath) {
+      fetch(filePath)
+        .then(response => response.text())
+        .then(csvData => {
+          populateTable(csvData);
+        })
+        .catch(error => console.error('Error loading CSV file:', error));
+    }
+
+    function populateTable(csvData) {
+      const table = document.getElementById('csvTable');
+      const rows = csvData.split('\n');
+
+      // Assume the first line is the header
+      const headers = rows[0].split(',');
+
+      // Create header cells
+      const headerRow = table.getElementsByTagName('thead')[0].insertRow(0);
+      for (let i = 2; i < headers.length; i++) {
+        const cell = headerRow.insertCell(i - 2);
+        cell.textContent = headers[i];
+      }
+
+      const tbody = table.getElementsByTagName('tbody')[0];
+      for (let i = rows.length - 1; i >= 1; i--) {
+        const data = rows[i].split(',');
+
+        // Skip the first two elements in each row
+        if (data.length > 2 && data[data.length - 1].trim().toLowerCase() !== 'closed') {
+          const row = tbody.insertRow(0);
+
+          for (let j = 2; j < data.length; j++) {
+            const cell = row.insertCell(j - 2);
+            cell.textContent = data[j];
+          }
+
+          // Add a button to the end of each row
+          const buttonCell = row.insertCell(data.length - 2); // Adjust the index if needed
+          const button = document.createElement('button');
+          button.textContent = 'Apply';
+          button.classList.add('apply-button');
+          buttonCell.appendChild(button);
+        }
+      }
+    }
+  </script>
+  <br />
+  <br />
+  <br />
+  <h3>Applicant Information</h3>
+  <div class="studentData">
+    <form class="studentForm">
+      <table class="studentDataTable">
+        <tr>
+          <td>
+            <label for="fname">First Name: </label>
+            <input type="text" name="fname" id="fname">
+          </td>
+          <td>
+            <label for="lname">Last Name: </label>
+            <input type="text" name="lname" id="lname">
+          </td>
+          <td>
+            <label for="email">Email Address: </label>
+            <input type="text" name="email" id="email">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="studentNum">Student Number: </label>
+            <input type="text" name="studentNum" id="studentNum">
+          </td>
+          <td>
+            <label for="degreeStatus">Degree Status: </label>
+            <select name="degreeStatus" id="degreeStatus" onchange="degreeStatusHide();">
+              <option value="underGrad" selected>No Degree Yet</option>
+              <option value="bachelors">Bachelor's</option>
+              <option value="masteers">Master's</option>
+              <option value="doctorate">Ph.D</option>
+            </select>
+          </td>
+          <td>
+            <div id="usDegree">
+              Is your degree from a U.S. institution?
+              <br />
+              <input type="radio" onclick="usDegree()" id="degreeFromUSYes" name="degreeFromUS" value="fromUSYes">
+              <label for="degreeFromUSYes">Yes</label>
+              <input type="radio" onclick="usDegree()" id="degreeFromUSNo" name="degreeFromUS" value="fromUSNo">
+              <label for="degreeFromUSNo">No</label><br />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div id="needEligbCert">
+              <span class="needCert">Do you have/need a certificate of eligibility</span>
+              <br />
+              <input type="radio" onclick="javascript:uploadCertHide()" id="eligbCertYes" name="eligbCert"
+                value="certYes">
+              <label for="eligbCertYes">Yes</label>
+              <input type="radio" onclick="javascript:uploadCertHide()" id="eligbCertNo" name="eligbCert"
+                value="certNo">
+              <label for="eligbCertNo">No</label><br />
+            </div>
+          </td>
+          <td>
+            <div id="uploadEligbCert">
+              <label for="eligibilityCert">Select your eligibility certificate: </label>
+              <input type="file" id="eligibilityCert" name="eligibilityCert">
+            </div>
+          </td>
+          <td>
+            <label for="resume">Select your resume/CV: </label>
+            <input type="file" id="resume" name="resume">
+          </td>
+        </tr>
+      </table>
+    </form>
+
+
+    <h3>Selected Course Details</h3>
+
+    <form id="course-form" class="studentForm">
+      <table class="studentDataTable">
+        <tr>
+          <td>
+            <label for="className">Class Name:</label>
+            <input type="text" id="className" name="className" readonly>
+          </td>
+          <td>
+            <label for="classNumber">Class Number:</label>
+            <input type="text" id="classNumber" name="classNumber" readonly>
+          </td>
+          <td>
+            <label for="classLevel">Class Level:</label>
+            <input type="text" id="classLevel" name="classLevel" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="applicationDeadline">Application Deadline:</label>
+            <input type="text" id="applicationDeadline" name="applicationDeadline" readonly>
+          </td>
+          <td>
+            <label for="position">Position:</label>
+            <input type="text" id="position" name="position" readonly>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <h2>
+      <form>
+        <button type="submit" formaction="applicationPage.html"> Submit </button>
+      </form>
+    </h2>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var table = document.getElementById('csvTable');
+      var form = document.getElementById('course-form');
+
+      table.addEventListener('click', function (event) {
+        if (event.target.classList.contains('apply-button')) {
+          var row = event.target.closest('tr');
+          populateForm(row);
+        }
+      });
+
+      function populateForm(row) {
+        var cells = row.getElementsByTagName('td');
+        var formInputs = form.elements;
+
+        // Assuming the order of input fields in the form matches the order of cells in the row
+        formInputs.className.value = cells[0].textContent;
+        formInputs.classNumber.value = cells[1].textContent;
+        formInputs.classLevel.value = cells[2].textContent;
+        formInputs.applicationDeadline.value = cells[4].textContent;
+        formInputs.position.value = cells[5].textContent;
+      }
+    });
+  </script>
+
+  <script type="text/javascript" src="projectjs/site.js"></script>
+</body>
