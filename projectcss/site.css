@@ -1,0 +1,142 @@
+.pageLogo {
+  display: flex;
+  flex-direction: row;
+  background-color: #0066cc;
+  align-items: center;
+}
+
+.centeredImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.leftColumn {
+  float: left;
+  width: 200px;
+  height: 250vh;
+  background-color: #0066cc;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 100px;
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+.mainForm {
+  padding-top: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.loginform {
+  padding-top: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+a.sidebar:link {
+  color: white;
+}
+
+.jobTable {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.joblist {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.joblistTableHeader {
+  text-align: left;
+}
+
+.tr-jobListRows {
+  text-align: left;
+}
+
+.mainContent {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  height: 300px;
+  overflow: scroll;
+}
+
+.apply-button {
+  background-color: #0066CC;
+  color: white;
+  padding: 10px;
+  font-size: 12px;
+}
+
+thead {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+p {
+  text-align: left;
+  padding-left: 250px;
+
+}
+
+/*for some reason, this is they only way to set table padding i found that works*/
+th,
+td {
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+.tableBody {
+  overflow: auto;
+  max-height: 300px;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.studentForm {
+  display: flex;
+  justify-content: center;
+}
+
+.loginButtons {
+  padding-inline: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  font-size: 10pt;
+  border: none;
+  width: 100%;
+}
+
+.studentData {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-left: 50px;
+  justify-content: center;
+}
+
+.studentDataTable {
+  margin-left: auto;
+  margin-right: auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 950px;
+}
