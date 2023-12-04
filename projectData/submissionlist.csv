@@ -1,0 +1,19 @@
+index,Owner,Submitter,First Name,Last Name,Student Number,Class Number,Degree Level,US Degree,Eligibility Certificate,Submission Date,Status
+1,joeepperson4@gmail.com,jee4cf@umsystem.edu,Joe,Epperson,16355783,CompSCI-101,Bachelors,Yes,NA,10/30/2023,Complete
+2,joeepperson4@gmail.com,jee4cf@umsystem.edu,Joe,Epperson,16355783,CompSCI-451,Ph.D,NA,NA,9/27/2023,Pending
+3,joeepperson4@gmail.com,jee4cf@umsystem.edu,Joe,Epperson,16355783,CompSCI-470,Masters,Yes,Yes,6/12/2023,Complete
+4,joeepperson4@gmail.com,jee4cf@umsystem.edu,Joe,Epperson,16355783,CompSCI-303,Bachelors,No,Yes,7/18/2023,Complete
+5,joeepperson4@gmail.com,jee4cf@umsystem.edu,Joe,Epperson,16355783,CompSCI-102,Bachelors,No,No,8/23/2023,Incomplete
+6,jaydenttran@gmail.com,jay3tt@umsystem.edu,Jeremy ,Reed,15284972,CompSCI-191,Bachelors,Yes,Yes,8/21/2023,Complete
+7,jaydenttran@gmail.com,fur33@umsystem.edu,Genji,Hamada,18497562,CompSCI-281R,Bachelors,No,Yes,9/1/2023,Pending
+8,jaydenttran@gmail.com,kelce6td@umsystem.edu,Taylor,Kelce,12345678,CompSCI-291,Masters,Yes,Yes,8/30/2023,Pending
+9,jaydenttran@gmail.com,fornini5@umsystem.edu,Jimmy,Fortnite,12222444,CompSCI-303,Bachelors,Yes,Yes,9/5/2023,Complete
+10,jaydenttran@gmail.com,chae9@umsystem.edu,Kim,Chaewon,18754685,CompSCI-304,Bachelors,No,No,10/1/2023,Pending
+11,jaydenttran@gmail.com,lee3b@umsystem.edu,Bobby,Lee,16254573,CompSCI-308,Bachelors,No,No,9/28/2023,Incomplete
+12,jaydenttran@gmail.com,gojo10ss@umsystem.edu,Satoru,Gojo,11286798,CompSCI-353,Masters,No,Yes,9/16/2023,Pending
+13,jaydenttran@gmail.com,buildb4t@umsystem.edu,Bob,Builder,34451118,CompSCI-361,Bachelors,Yes,Yes,9/14/2023,Complete
+14,jaydenttran@gmail.com,doe6@umsystem.edu,John,Doe,15684752,CompSCI-371,Bachelors,NA,NA,10/9/2023,Pending
+15,jaydenttran@gmail.com,fergie8@umsystem.edu,Stacy,Ferguson,18523654,CompSCI-404,Bachelors,Yes,Yes,8/31/2023,Pending
+16,jaydenttran@gmail.com,poppins2p@umsystem.edu,Mary,Poppins,19875468,CompSCI-476,Bachelors,No,Yes,9/27/2023,Complete
+17,jaydenttran@gmail.com,kim35j@umsystem.edu,Jennie,Kim,10250452,CompSCI-5514,Masters,No,Yes,10/16/2023,Pending
+18,jaydenttran@gmail.com,fam4vd@umsystem.edu,Vin,Diesel,18536875,CompSCI-5514,Ph.D,Yes,Yes,9/13/2023,Pending
