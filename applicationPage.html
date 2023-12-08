@@ -64,7 +64,7 @@
 
       // Create header cells
       const headerRow = table.getElementsByTagName('thead')[0].insertRow(0);
-      for (let i = 2; i < headers.length; i++) {
+      for (let i = 2; i < headers.length - 1; i++) {
         const cell = headerRow.insertCell(i - 2);
         cell.textContent = headers[i];
       }
@@ -77,13 +77,13 @@
         if (data.length > 2 && data[data.length - 1].trim().toLowerCase() !== 'closed') {
           const row = tbody.insertRow(0);
 
-          for (let j = 2; j < data.length; j++) {
+          for (let j = 2; j < data.length - 1; j++) {
             const cell = row.insertCell(j - 2);
             cell.textContent = data[j];
           }
 
           // Add a button to the end of each row
-          const buttonCell = row.insertCell(data.length - 2); // Adjust the index if needed
+          const buttonCell = row.insertCell(data.length - 3); // Adjust the index if needed
           const button = document.createElement('button');
           button.textContent = 'Apply';
           button.classList.add('apply-button');

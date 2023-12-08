@@ -1,20 +1,22 @@
 <!DOCTYPE html>
+
 <head>
   <link rel="stylesheet" type="text/css" href="projectcss/site.css" />
 </head>
 <html>
-  <title>
-    GTA Job site prototype
-  </title>
-  <body>
-    <div class="leftColumn">
-      <form>
-        <button class="loginButtons" type="submit" formaction="index.html"> Home </button>
-      </form>
-    </div>
-    <div class="pageLogo">
-      <img alt="UMKC Logo" src="projectimages/umkc_white_cropped2.png" class="centeredImage">
-    </div>
+<title>
+  GTA Job site prototype
+</title>
+
+<body>
+  <div class="leftColumn">
+    <form>
+      <button class="loginButtons" type="submit" formaction="index.html"> Home </button>
+    </form>
+  </div>
+  <div class="pageLogo">
+    <img alt="UMKC Logo" src="projectimages/umkc_white_cropped2.png" class="centeredImage">
+  </div>
   <h2>Administrative page</h2>
   <div>
     <h2>
@@ -39,9 +41,9 @@
         fetch(filePath)
           .then(response => response.text())
           .then(csvData => {
-                populateTable(csvData);
-                })
-        .catch(error => console.error('Error loading CSV file:', error));
+            populateTable(csvData);
+          })
+          .catch(error => console.error('Error loading CSV file:', error));
       }
 
       function populateTable(csvData) {
@@ -72,7 +74,39 @@
         }
       }
     </script>
-  </div>
-<body>
+    <div>
+      <h3>Create Job</h3>
+      <form id="course-form" class="studentForm">
+        <table class="studentDataTable">
+          <tr>
+            <td>
+              <label for="className">Class Name:</label>
+              <input type="text" id="className" name="className">
+            </td>
+            <td>
+              <label for="classNumber">Class Number:</label>
+              <input type="text" id="classNumber" name="classNumber">
+            </td>
+            <td>
+              <label for="classLevel">Class Level:</label>
+              <input type="text" id="classLevel" name="classLevel">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="applicationDeadline">Application Deadline:</label>
+              <input type="text" id="applicationDeadline" name="applicationDeadline">
+            </td>
+            <td>
+              <label for="position">Position:</label>
+              <input type="text" id="position" name="position">
+            </td>
+          </tr>
+        </table>
 
-   
+        <button type="submit" formaction="applicationPage.html"> Submit </button>
+      </form>
+    </div>
+  </div>
+
+  <body>
